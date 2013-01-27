@@ -12,18 +12,31 @@
 
 @end
 
+BOOL showString1 = true;
+NSString *string1 = @"Hello!";
+NSString *string2 = @"Goodbye!";
+
 @implementation ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    DLog();
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(IBAction) onButtonPressed {
+    //DLog("pressed button");
+    if(showString1) {
+        theLabel.text = string1;
+    } else {
+        theLabel.text = string2;
+    }
+    showString1 = !showString1;
 }
 
 @end

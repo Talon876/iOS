@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    
+    @private
+    IBOutlet UILabel *theLabel;
+    IBOutlet UIButton *theButton;
+    
+}
+
+-(IBAction) onButtonPressed;
 
 @end
