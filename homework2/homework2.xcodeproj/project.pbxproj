@@ -18,6 +18,8 @@
 		E8B8BFD216B5C54A00040FB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B8BFD116B5C54A00040FB4 /* Default-568h@2x.png */; };
 		E8B8BFD516B5C54A00040FB4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B8BFD316B5C54A00040FB4 /* MainStoryboard.storyboard */; };
 		E8B8BFD816B5C54A00040FB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B8BFD716B5C54A00040FB4 /* ViewController.m */; };
+		E8B8BFE016B5CAFD00040FB4 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B8BFDF16B5CAFD00040FB4 /* DrawView.m */; };
+		E8B8BFE316B5E62200040FB4 /* CustomPathDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B8BFE216B5E62200040FB4 /* CustomPathDrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		E8B8BFD416B5C54A00040FB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		E8B8BFD616B5C54A00040FB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E8B8BFD716B5C54A00040FB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E8B8BFDE16B5CAFD00040FB4 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		E8B8BFDF16B5CAFD00040FB4 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		E8B8BFE116B5E62200040FB4 /* CustomPathDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPathDrawView.h; sourceTree = "<group>"; };
+		E8B8BFE216B5E62200040FB4 /* CustomPathDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPathDrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,10 @@
 				E8B8BFD316B5C54A00040FB4 /* MainStoryboard.storyboard */,
 				E8B8BFD616B5C54A00040FB4 /* ViewController.h */,
 				E8B8BFD716B5C54A00040FB4 /* ViewController.m */,
+				E8B8BFDE16B5CAFD00040FB4 /* DrawView.h */,
+				E8B8BFDF16B5CAFD00040FB4 /* DrawView.m */,
+				E8B8BFE116B5E62200040FB4 /* CustomPathDrawView.h */,
+				E8B8BFE216B5E62200040FB4 /* CustomPathDrawView.m */,
 				E8B8BFC216B5C54A00040FB4 /* Supporting Files */,
 			);
 			path = homework2;
@@ -176,6 +186,8 @@
 				E8B8BFC816B5C54A00040FB4 /* main.m in Sources */,
 				E8B8BFCC16B5C54A00040FB4 /* AppDelegate.m in Sources */,
 				E8B8BFD816B5C54A00040FB4 /* ViewController.m in Sources */,
+				E8B8BFE016B5CAFD00040FB4 /* DrawView.m in Sources */,
+				E8B8BFE316B5E62200040FB4 /* CustomPathDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CustomPathDrawView.h
 //  homework2
 //
 //  Created by Talon Daniels on 1/27/13.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
-    IBOutlet UIView *childView;
-
+@interface CustomPathDrawView : UIView {
+    UIBezierPath *path;
+    
 }
 
--(IBAction) buttonPressed;
+- (void)changePatternToNumber:(NSInteger)newPattern;
 
 @end
