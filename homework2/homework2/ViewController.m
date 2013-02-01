@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Talon Daniels. All rights reserved.
 //
 
+// 100%
+
 #import "ViewController.h"
 #import "DrawView.h"
 
