@@ -6,15 +6,17 @@
 //  Copyright (c) 2013 Talon Daniels. All rights reserved.
 //
 
+// good job, 100%
+
 #import "ViewController.h"
 
 @interface ViewController ()
 
 @end
 
-BOOL showString1 = true;
-NSString *string1 = @"Hello!";
-NSString *string2 = @"Goodbye!";
+BOOL showString1 = true; // probably should be an instance variable...
+NSString *string1 = @"Aloha (Hello)!";
+NSString *string2 = @"Aloha (Goodbye)!";
 
 @implementation ViewController
 
