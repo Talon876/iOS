@@ -6,6 +6,11 @@
 //  Copyright (c) 2013 Talon Daniels. All rights reserved.
 //
 
+// On a 3.5" screen, the variable picker is partially occluded.
+// You should restrict the available dates in the date picker, otherwise it's guess-and-check.
+// The array of "variables" should be set based on what the server returns, not hard-coded.
+// Fully functional, but not a good code design or user experience. 85%.
+
 #import "HFViewController.h"
 
 static NSString* const kServerAddress = @"https://weatherparser.herokuapp.com";
