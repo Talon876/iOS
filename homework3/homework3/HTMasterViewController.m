@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Talon Daniels. All rights reserved.
 //
 
+// Good work, 100%. The code could use a little cleanup...
+
 #import "HTMasterViewController.h"
 
 #import "HTDetailViewController.h"
