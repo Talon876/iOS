@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Talon Daniels. All rights reserved.
 //
 
+// Good job, 100%.
+
 #import "HFCollectionViewController.h"
 #import "HFCustomCell.h"
 
