@@ -20,6 +20,8 @@
 		E89A1AFD1701294D00467ECD /* WAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89A1AFC1701294D00467ECD /* WAViewController.m */; };
 		E89A1B041701295E00467ECD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E89A1B031701295E00467ECD /* icon.png */; };
 		E89A1B061701296200467ECD /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E89A1B051701296200467ECD /* icon@2x.png */; };
+		E89A1B091701302500467ECD /* WAWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = E89A1B081701302500467ECD /* WAWeatherData.m */; };
+		E89A1B0B170146CC00467ECD /* fake-data.json in Resources */ = {isa = PBXBuildFile; fileRef = E89A1B0A170146CC00467ECD /* fake-data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		E89A1AFC1701294D00467ECD /* WAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAViewController.m; sourceTree = "<group>"; };
 		E89A1B031701295E00467ECD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E89A1B051701296200467ECD /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		E89A1B071701302500467ECD /* WAWeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAWeatherData.h; sourceTree = "<group>"; };
+		E89A1B081701302500467ECD /* WAWeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAWeatherData.m; sourceTree = "<group>"; };
+		E89A1B0A170146CC00467ECD /* fake-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "fake-data.json"; path = "Weather/fake-data.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 		E89A1AD41701294D00467ECD = {
 			isa = PBXGroup;
 			children = (
+				E89A1B0A170146CC00467ECD /* fake-data.json */,
 				E89A1B051701296200467ECD /* icon@2x.png */,
 				E89A1B031701295E00467ECD /* icon.png */,
 				E89A1AE61701294D00467ECD /* Weather */,
@@ -94,6 +100,8 @@
 				E89A1AF81701294D00467ECD /* MainStoryboard.storyboard */,
 				E89A1AFB1701294D00467ECD /* WAViewController.h */,
 				E89A1AFC1701294D00467ECD /* WAViewController.m */,
+				E89A1B071701302500467ECD /* WAWeatherData.h */,
+				E89A1B081701302500467ECD /* WAWeatherData.m */,
 				E89A1AE71701294D00467ECD /* Supporting Files */,
 			);
 			path = Weather;
@@ -172,6 +180,7 @@
 				E89A1AFA1701294D00467ECD /* MainStoryboard.storyboard in Resources */,
 				E89A1B041701295E00467ECD /* icon.png in Resources */,
 				E89A1B061701296200467ECD /* icon@2x.png in Resources */,
+				E89A1B0B170146CC00467ECD /* fake-data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +194,7 @@
 				E89A1AED1701294D00467ECD /* main.m in Sources */,
 				E89A1AF11701294D00467ECD /* WAAppDelegate.m in Sources */,
 				E89A1AFD1701294D00467ECD /* WAViewController.m in Sources */,
+				E89A1B091701302500467ECD /* WAWeatherData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +317,7 @@
 				E89A1B021701294D00467ECD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

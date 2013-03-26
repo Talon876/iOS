@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="WAViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HjW-la-nh5">
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxj-wZ-jvP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="tkg-iX-S0G"/>
+                                    <constraint firstAttribute="width" constant="149" id="udh-OM-RT1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79993809148850625" green="1" blue="0.98935496198643047" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Oxj-wZ-jvP" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="cXf-F0-nsd"/>
+                            <constraint firstItem="Oxj-wZ-jvP" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="h19-jm-nry"/>
+                            <constraint firstItem="Oxj-wZ-jvP" firstAttribute="centerX" secondItem="HjW-la-nh5" secondAttribute="centerX" type="default" id="m6C-lE-xuP"/>
+                            <constraint firstItem="Oxj-wZ-jvP" firstAttribute="centerY" secondItem="HjW-la-nh5" secondAttribute="centerY" type="default" id="uba-oO-XrA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loadingIcon" destination="HjW-la-nh5" id="vts-TG-Bah"/>
+                        <outlet property="tempLabel" destination="Oxj-wZ-jvP" id="HsD-in-D3X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
