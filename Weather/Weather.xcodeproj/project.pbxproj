@@ -22,6 +22,10 @@
 		E89A1B061701296200467ECD /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E89A1B051701296200467ECD /* icon@2x.png */; };
 		E89A1B091701302500467ECD /* WAWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = E89A1B081701302500467ECD /* WAWeatherData.m */; };
 		E89A1B0B170146CC00467ECD /* fake-data.json in Resources */ = {isa = PBXBuildFile; fileRef = E89A1B0A170146CC00467ECD /* fake-data.json */; };
+		E8AA70721702C815004F7762 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70701702C815004F7762 /* sun.png */; };
+		E8AA70731702C815004F7762 /* sun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70711702C815004F7762 /* sun@2x.png */; };
+		E8AA70761702CB4B004F7762 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70741702CB4B004F7762 /* snow.png */; };
+		E8AA70771702CB4B004F7762 /* snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70751702CB4B004F7762 /* snow@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		E89A1B071701302500467ECD /* WAWeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAWeatherData.h; sourceTree = "<group>"; };
 		E89A1B081701302500467ECD /* WAWeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAWeatherData.m; sourceTree = "<group>"; };
 		E89A1B0A170146CC00467ECD /* fake-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "fake-data.json"; path = "Weather/fake-data.json"; sourceTree = "<group>"; };
+		E8AA70701702C815004F7762 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		E8AA70711702C815004F7762 /* sun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun@2x.png"; sourceTree = "<group>"; };
+		E8AA70741702CB4B004F7762 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		E8AA70751702CB4B004F7762 /* snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +118,10 @@
 		E89A1AE71701294D00467ECD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E8AA70741702CB4B004F7762 /* snow.png */,
+				E8AA70751702CB4B004F7762 /* snow@2x.png */,
+				E8AA70701702C815004F7762 /* sun.png */,
+				E8AA70711702C815004F7762 /* sun@2x.png */,
 				E89A1AE81701294D00467ECD /* Weather-Info.plist */,
 				E89A1AE91701294D00467ECD /* InfoPlist.strings */,
 				E89A1AEC1701294D00467ECD /* main.m */,
@@ -181,6 +193,10 @@
 				E89A1B041701295E00467ECD /* icon.png in Resources */,
 				E89A1B061701296200467ECD /* icon@2x.png in Resources */,
 				E89A1B0B170146CC00467ECD /* fake-data.json in Resources */,
+				E8AA70721702C815004F7762 /* sun.png in Resources */,
+				E8AA70731702C815004F7762 /* sun@2x.png in Resources */,
+				E8AA70761702CB4B004F7762 /* snow.png in Resources */,
+				E8AA70771702CB4B004F7762 /* snow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

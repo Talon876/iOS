@@ -13,6 +13,7 @@
     WAWeatherData *weather;
     __weak IBOutlet UIActivityIndicatorView *loadingIcon;
     __weak IBOutlet UILabel *tempLabel;
+    __weak IBOutlet UIImageView *weatherImage;
 }
 
 @end
@@ -32,7 +33,13 @@
 -(void) weatherRefreshed:(NSNotification*)note {
     NSLog(@"reached view controller's weather refreshed");
     loadingIcon.hidden = YES;
-    tempLabel.text = @"25 °F";
+    tempLabel.text = [NSString stringWithFormat:@"%d °F", weather->todayMaxF];
+    if (weather->todaySnowChance >= 0.5f) {
+        weatherImage.image = [UIImage imageNamed:@"snow"];
+    } else {
+        weatherImage.image = [UIImage imageNamed:@"sun"];
+    }
+    NSLog(@"snow chance: %f", weather->todaySnowChance);
 }
 
 - (void)didReceiveMemoryWarning

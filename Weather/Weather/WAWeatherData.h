@@ -11,6 +11,9 @@
 @interface WAWeatherData : NSObject {
     @public
     BOOL loaded;
+    int todayMinF;
+    int todayMaxF;
+    float todaySnowChance;
 }
 
 -(void)load;
