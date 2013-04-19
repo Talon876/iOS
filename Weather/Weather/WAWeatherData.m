@@ -57,6 +57,11 @@ id weatherInfo;
     NSArray *rainVals = [variableMap objectForKey:@"crainsfc"];
     NSLog(@"%d %d %d %d", [minTemps count], [maxTemps count], [snowVals count], [rainVals count]);
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    [dateFormatter setTimeZone:timeZone];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd H:m:s"];
+    
     // if ([minTemps count] == [maxTemps count] == [snowVals count] == [rainVals count]) {
     NSLog(@"Generating arrays of weather information");
     minsF = [NSMutableArray array];
@@ -75,10 +80,15 @@ id weatherInfo;
         NSArray *todaySnowPredictions = todaySnow[@"predictions"];
         NSArray *todayRainPredictions = todayRain[@"predictions"];
         NSString *todayDate = todayMin[@"date"];
-        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T00:00:00.000Z" withString:@" Midnight"];
-        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T06:00:00.000Z" withString:@" Morning"];
-        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T12:00:00.000Z" withString:@" Midday"];
-        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T18:00:00.000Z" withString:@" Evening"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@".000Z" withString:@""];
+        NSDate *date = [dateFormatter dateFromString:todayDate];
+        date = [self fixTimeZone:date];
+        todayDate = [dateFormatter stringFromDate:date];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@" 0:0:0" withString:@" Midnight"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@" 6:0:0" withString:@" Morning"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@" 12:0:0" withString:@" Midday"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@" 18:0:0" withString:@" Evening"];
         [dates addObject:todayDate];
         
         //set todayMinF
@@ -136,6 +146,19 @@ id weatherInfo;
 
 -(NSInteger) fahrenheitFromKelvin:(float)kelvin {
     return (NSInteger)(9./5. * (kelvin - 273.) + 32.);
+}
+
+-(NSDate*) fixTimeZone:(NSDate*) sourceDate
+{
+    NSTimeZone* sourceTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    NSTimeZone* destinationTimeZone = [NSTimeZone systemTimeZone];
+    
+    NSInteger sourceGMTOffset = [sourceTimeZone secondsFromGMTForDate:sourceDate];
+    NSInteger destinationGMTOffset = [destinationTimeZone secondsFromGMTForDate:sourceDate];
+    NSTimeInterval interval = destinationGMTOffset - sourceGMTOffset;
+    
+    NSDate* destinationDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:sourceDate];
+    return destinationDate;
 }
 
 @end
