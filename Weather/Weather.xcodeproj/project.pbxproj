@@ -26,6 +26,7 @@
 		E8AA70731702C815004F7762 /* sun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70711702C815004F7762 /* sun@2x.png */; };
 		E8AA70761702CB4B004F7762 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70741702CB4B004F7762 /* snow.png */; };
 		E8AA70771702CB4B004F7762 /* snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA70751702CB4B004F7762 /* snow@2x.png */; };
+		E8B7F14E1720F47A00CA6A4C /* rain@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B7F14D1720F47A00CA6A4C /* rain@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		E8AA70711702C815004F7762 /* sun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sun@2x.png"; sourceTree = "<group>"; };
 		E8AA70741702CB4B004F7762 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
 		E8AA70751702CB4B004F7762 /* snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow@2x.png"; sourceTree = "<group>"; };
+		E8B7F14B1720A39B00CA6A4C /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
+		E8B7F14D1720F47A00CA6A4C /* rain@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rain@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 		E89A1AE71701294D00467ECD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E8B7F14D1720F47A00CA6A4C /* rain@2x.png */,
+				E8B7F14B1720A39B00CA6A4C /* rain.png */,
 				E8AA70741702CB4B004F7762 /* snow.png */,
 				E8AA70751702CB4B004F7762 /* snow@2x.png */,
 				E8AA70701702C815004F7762 /* sun.png */,
@@ -197,6 +202,7 @@
 				E8AA70731702C815004F7762 /* sun@2x.png in Resources */,
 				E8AA70761702CB4B004F7762 /* snow.png in Resources */,
 				E8AA70771702CB4B004F7762 /* snow@2x.png in Resources */,
+				E8B7F14E1720F47A00CA6A4C /* rain@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

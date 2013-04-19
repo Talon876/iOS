@@ -21,9 +21,9 @@ id weatherInfo;
     NSLog(@"Loading weather data from %@", baseUrl);
     loaded = NO;
     
-//    rowIds = [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:4], nil];
-//    variables = [NSArray arrayWithObjects:@"csnowsfc", @"crainsfc", @"tmin2m", @"apcpsfc", @"tmax2m", nil];
-//    variableMap = [NSDictionary dictionaryWithObjects:rowIds forKeys:variables];
+    //    rowIds = [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1], [NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:4], nil];
+    //    variables = [NSArray arrayWithObjects:@"csnowsfc", @"crainsfc", @"tmin2m", @"apcpsfc", @"tmax2m", nil];
+    //    variableMap = [NSDictionary dictionaryWithObjects:rowIds forKeys:variables];
     variableMap = [NSMutableDictionary new];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weatherRefreshed:) name:@"weatherRefreshed" object:nil];
     [self performSelectorInBackground:@selector(refreshWeather) withObject:nil];
@@ -44,52 +44,89 @@ id weatherInfo;
     weatherInfo = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:&error];
     if (error) {
         NSLog(@"Error parsing JSON %@: %@", [[NSString alloc] initWithData:json encoding:NSASCIIStringEncoding], [error localizedDescription]);
-        return;
+        
     }
     
     for (NSDictionary *dict in weatherInfo ) {
-        NSLog(@"var: %@", dict[@"variable"] );
         [variableMap setValue:dict[@"values"] forKey:dict[@"variable"]];
     }
     
     NSArray *minTemps = [variableMap objectForKey:@"tmin2m"];
     NSArray *maxTemps = [variableMap objectForKey:@"tmax2m"];
     NSArray *snowVals = [variableMap objectForKey:@"csnowsfc"];
-    NSDictionary *todayMin = [minTemps objectAtIndex:0];
-    NSDictionary *todayMax = [maxTemps objectAtIndex:0];
-    NSDictionary *todaySnow = [snowVals objectAtIndex:0];
-    NSArray *todayMinPredictions = todayMin[@"predictions"];
-    NSArray *todayMaxPredictions = todayMax[@"predictions"];
-    NSArray *todaySnowPredictions = todaySnow[@"predictions"];
+    NSArray *rainVals = [variableMap objectForKey:@"crainsfc"];
+    NSLog(@"%d %d %d %d", [minTemps count], [maxTemps count], [snowVals count], [rainVals count]);
     
-    //set todayMinF
-    NSInteger fahTempMin = 0;
-    for (NSString *temp in todayMinPredictions) {
-        float tempValue = [temp floatValue];
-        NSInteger fahTemp = (NSInteger)[self fahrenheitFromKelvin:tempValue];
-        fahTempMin += fahTemp;
-    }
-    todayMinF = fahTempMin / [todayMinPredictions count];
+    // if ([minTemps count] == [maxTemps count] == [snowVals count] == [rainVals count]) {
+    NSLog(@"Generating arrays of weather information");
+    minsF = [NSMutableArray array];
+    maxsF = [NSMutableArray array];
+    snowChances = [NSMutableArray array];
+    rainChances = [NSMutableArray array];
+    dates = [NSMutableArray array];
     
-    //set todayMaxF
-    NSInteger fahTempMax = 0;
-    for (NSString *temp in todayMaxPredictions) {
-        float tempValue = [temp floatValue];
-        NSInteger fahTemp = (NSInteger)[self fahrenheitFromKelvin:tempValue];
-        fahTempMax += fahTemp;
+    for (int i = 0; i < [minTemps count]; i++) {
+        NSDictionary *todayMin = [minTemps objectAtIndex:i];
+        NSDictionary *todayMax = [maxTemps objectAtIndex:i];
+        NSDictionary *todaySnow = [snowVals objectAtIndex:i];
+        NSDictionary *todayRain = [rainVals objectAtIndex:i];
+        NSArray *todayMinPredictions = todayMin[@"predictions"];
+        NSArray *todayMaxPredictions = todayMax[@"predictions"];
+        NSArray *todaySnowPredictions = todaySnow[@"predictions"];
+        NSArray *todayRainPredictions = todayRain[@"predictions"];
+        NSString *todayDate = todayMin[@"date"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T00:00:00.000Z" withString:@" Midnight"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T06:00:00.000Z" withString:@" Morning"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T12:00:00.000Z" withString:@" Midday"];
+        todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T18:00:00.000Z" withString:@" Evening"];
+        [dates addObject:todayDate];
+        
+        //set todayMinF
+        NSInteger fahTempMin = 0;
+        for (NSString *temp in todayMinPredictions) {
+            float tempValue = [temp floatValue];
+            NSInteger fahTemp = (NSInteger)[self fahrenheitFromKelvin:tempValue];
+            fahTempMin += fahTemp;
+        }
+        todayMinF = fahTempMin / [todayMinPredictions count];
+        [minsF addObject:[NSNumber numberWithFloat:todayMinF]];
+        
+        //set todayMaxF
+        NSInteger fahTempMax = 0;
+        for (NSString *temp in todayMaxPredictions) {
+            float tempValue = [temp floatValue];
+            NSInteger fahTemp = (NSInteger)[self fahrenheitFromKelvin:tempValue];
+            fahTempMax += fahTemp;
+        }
+        todayMaxF = fahTempMax / [todayMaxPredictions count];
+        [maxsF addObject:[NSNumber numberWithFloat:todayMaxF]];
+        
+        //set todaySnowChance
+        float snowChance = 0;
+        for (NSString *chance in todaySnowPredictions) {
+            int chanceVal = [chance intValue];
+            snowChance += chanceVal;
+        }
+        todaySnowChance = snowChance / [todaySnowPredictions count];
+        [snowChances addObject:[NSNumber numberWithFloat:todaySnowChance]];
+        
+        //set todayRainChance
+        float rainChance = 0;
+        for (NSString *chance in todayRainPredictions) {
+            int chanceVal = [chance intValue];
+            rainChance += chanceVal;
+        }
+        todayRainChance = rainChance / [todayRainPredictions count];
+        [rainChances addObject:[NSNumber numberWithFloat:todayRainChance]];
     }
-    todayMaxF = fahTempMax / [todayMaxPredictions count];
     
-    //set todaySnowChance
-    float snowChance = 0;
-    for (NSString *chance in todaySnowPredictions) {
-        int chanceVal = [chance intValue];
-        snowChance += chanceVal;
-    }
-    todaySnowChance = snowChance / [todaySnowPredictions count];
+    NSLog(@"Mins: %@", minsF);
+    NSLog(@"Maxs: %@", maxsF);
+    NSLog(@"Snows: %@", snowChances);
+    NSLog(@"Rains: %@", rainChances);
     
     loaded = YES;
-     NSLog(@"refreshed weather data");
+    NSLog(@"refreshed weather data");
     [[NSNotificationCenter defaultCenter] postNotificationName:@"weatherRefreshed" object:nil];
 }
 
