@@ -59,8 +59,13 @@
         weatherImage.image = [UIImage imageNamed:@"rain"];
         NSLog(@"raining");
     } else {
-        weatherImage.image = [UIImage imageNamed:@"sun"];
-        NSLog(@"sunshine");
+        if ([[weather->sunSeconds objectAtIndex:index] intValue] > 10800) { //more than 3 hours
+            weatherImage.image = [UIImage imageNamed:@"sun"];
+            NSLog(@"sunshine");
+        } else {
+            weatherImage.image = [UIImage imageNamed:@"cloud"];
+            NSLog(@"cloudy");
+        }
     }
     dateLabel.text = [NSString stringWithFormat:@"%@", [weather->dates objectAtIndex:index]];
 }

@@ -16,11 +16,13 @@
     NSMutableArray *snowChances;
     NSMutableArray *rainChances;
     NSMutableArray *dates;
+    NSMutableArray *sunSeconds;
     
     int todayMinF;
     int todayMaxF;
     float todaySnowChance;
     float todayRainChance;
+    int todaySunSeconds;
 }
 
 -(void)load;

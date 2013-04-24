@@ -55,7 +55,8 @@ id weatherInfo;
     NSArray *maxTemps = [variableMap objectForKey:@"tmax2m"];
     NSArray *snowVals = [variableMap objectForKey:@"csnowsfc"];
     NSArray *rainVals = [variableMap objectForKey:@"crainsfc"];
-    NSLog(@"%d %d %d %d", [minTemps count], [maxTemps count], [snowVals count], [rainVals count]);
+    NSArray *sunSec = [variableMap objectForKey:@"sunsdsfc"];
+    NSLog(@"%d %d %d %d %d", [minTemps count], [maxTemps count], [snowVals count], [rainVals count] ,[sunSec count]);
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
@@ -69,16 +70,21 @@ id weatherInfo;
     snowChances = [NSMutableArray array];
     rainChances = [NSMutableArray array];
     dates = [NSMutableArray array];
+    sunSeconds = [NSMutableArray array];
     
     for (int i = 0; i < [minTemps count]; i++) {
         NSDictionary *todayMin = [minTemps objectAtIndex:i];
         NSDictionary *todayMax = [maxTemps objectAtIndex:i];
         NSDictionary *todaySnow = [snowVals objectAtIndex:i];
         NSDictionary *todayRain = [rainVals objectAtIndex:i];
+        NSDictionary *todaySunSec = [sunSec objectAtIndex:i];
+        
         NSArray *todayMinPredictions = todayMin[@"predictions"];
         NSArray *todayMaxPredictions = todayMax[@"predictions"];
         NSArray *todaySnowPredictions = todaySnow[@"predictions"];
         NSArray *todayRainPredictions = todayRain[@"predictions"];
+        NSArray *todaySunSecPredictions = todaySunSec[@"predictions"];
+        
         NSString *todayDate = todayMin[@"date"];
         todayDate = [todayDate stringByReplacingOccurrencesOfString:@"T" withString:@" "];
         todayDate = [todayDate stringByReplacingOccurrencesOfString:@".000Z" withString:@""];
@@ -128,12 +134,21 @@ id weatherInfo;
         }
         todayRainChance = rainChance / [todayRainPredictions count];
         [rainChances addObject:[NSNumber numberWithFloat:todayRainChance]];
+        
+        NSInteger sunSecond = 0;
+        for (NSString *sec in todaySunSecPredictions) {
+            int secVal = [sec intValue];
+            sunSecond += secVal;
+        }
+        todaySunSeconds = sunSecond / [todaySunSecPredictions count];
+        [sunSeconds addObject:[NSNumber numberWithInt:todaySunSeconds]];
     }
     
     NSLog(@"Mins: %@", minsF);
     NSLog(@"Maxs: %@", maxsF);
     NSLog(@"Snows: %@", snowChances);
     NSLog(@"Rains: %@", rainChances);
+    NSLog(@"SunSeconds: %@", sunSeconds);
     
     loaded = YES;
     NSLog(@"refreshed weather data");
