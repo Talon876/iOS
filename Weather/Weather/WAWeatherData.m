@@ -6,6 +6,13 @@
 //  Copyright (c) 2013 Talon Daniels. All rights reserved.
 //
 
+// Good job with graphics. Too bad you didn't get to use the variability in the
+// weather forecast data, though - that's the thing that makes this app different
+// from other weather apps on the market! You should have converted the date/time
+// into local (or Mountain) time, too.
+// Project grade: 90%
+// Course grade: 93%
+
 #import "WAWeatherData.h"
 
 static NSString* const baseUrl = @"https://weatherparser.herokuapp.com";
